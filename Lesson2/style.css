@@ -7,7 +7,7 @@ p::first-letter {
   color: orange;
 }
 
- li {
+li {
   font-weight: bold;
   color: black;
 }
@@ -43,7 +43,7 @@ tbody td:first-child {
   color: green;
 }
 
-tr td:nth-child(even) {
+tbody tr:nth-of-type(even), thead tr:last-child {
   background: lightblue;
 }
 
