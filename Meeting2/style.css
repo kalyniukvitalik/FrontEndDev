@@ -1,0 +1,168 @@
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body  {
+    box-sizing: border-box;
+    margin: 0;
+    display: block;
+    font-family: 'Roboto';
+}
+
+.main {
+    width: 100vh;
+    max-width: 200px;
+    height: 100vh;
+    max-height: 403px;
+    border-radius: 5px;
+    background:#FFF;
+    border: 2px solid gray;
+    box-sizing: border-box;
+
+    display: block;
+}
+.imac {
+    width: 200px;
+    height: 164px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.imac img {
+    height: 134px;
+    width: 160px;
+    margin: 30px 20px auto;
+}
+
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing:border-box;
+}
+
+.article__name {
+    flex: 0 1 auto;
+    padding: 45px 16px  6px 15px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.article__code {
+    flex: 0 1 auto;
+    padding-left: 15px;
+    padding-right: 84px;
+    font-size: 11px;
+}
+
+.card {
+   display: block;
+   max-width: 200px;
+   width: 100%;
+   padding: 15px 15px 0 15px;
+   bottom: #FFF;
+   font-family: 'Roboto', sans-serif;
+   font-size: 11px;
+   box-sizing: border-box;
+}
+
+.card__iformation {
+    display: flex;
+}
+
+.card__rating {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__star {
+    flex: 0 0 15px;
+    fill: #E5E5E5;
+}
+
+.card__star--active {
+    fill: #FFDE6A;
+}
+
+.card__review {
+    flex: 0 0 auto;
+   margin-left: 21px;
+}
+
+.price {
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    padding: 15px;
+    padding-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    box-sizing: border-box;
+}
+
+.price_information {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price__figures {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.btn {
+    box-sizing: border-box;
+    height: 75px;
+    display: block;
+    }
+
+.btn_put {
+    justify-content: center;
+    padding: 20px 15px 15px 15px;
+    width: 170px;
+    height: 40px;
+    display: flex;
+}
+
+button {
+    background: #00ACDC;
+    border: none;
+    width: 100vh;
+    border-radius: 5px;
+    color: #FFF;
+    padding: 0;
+    cursor: pointer;
+}
+
+button:active {
+    background: #fff;
+    color: #00ACDC;
+    border: 1px solid #00ACDC;
+}
+
+button:focus {
+    outline: none;
+}
+
+.card__star:hover {
+    flex: 0 0 15px;
+    fill: #FFDE6A;
+    cursor: pointer;
+}
+
+.card__star--active:hover {
+    fill: #E5E5E5;
+    cursor: pointer;
+}
