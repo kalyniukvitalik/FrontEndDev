@@ -18,10 +18,8 @@
 
 body {
     margin: 0;
-
     display: flex;
     flex-direction: row;
-
     box-sizing: border-box;
 }
 
@@ -111,7 +109,7 @@ body {
     padding: 0;
     list-style: none;
     font-size: .9286rem;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 0.6;
     mix-blend-mode: normal;
     min-height: 120px;
@@ -141,15 +139,11 @@ body {
 
 .calendar__day-link {
     flex: 0 0 100%;
-    
     aspect-ratio: 1 / 1;
-
     max-width: 80px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: .9286rem;
     color: #FFFFFF;
     text-decoration: none;
@@ -162,6 +156,28 @@ body {
 .calendar__day--display .calendar__day-link {
     background: #3C82F9;
 }
+
+
+.calendar__day-link--other-month {
+    flex: 0 0 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 80px;
+    text-decoration: none;
+    color: rgb(139, 139, 139);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9286rem;
+    background: transparent;
+    border-radius: 50%;
+    transition: background-color .6s linear 0s;
+}
+
+.calendar__day-link--other-month:hover {
+    background:rgb(236, 235, 236);
+}
+
+
 
 .calendar__header {
     position: relative;
@@ -263,10 +279,8 @@ body {
 }
 
 .day__event--outer {
-    left: 135px;
     right: 0;
     width: auto;
-    margin-left: 40px;
 }
 
 .filter {
