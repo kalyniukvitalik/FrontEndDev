@@ -212,6 +212,27 @@ body {
     padding-bottom: 88px;
     border-bottom: 2px solid #F3F3F3;
     margin-bottom: 117px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day__button {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.display__button--search {
+    display: block;
+}
+
+.day__button--quadrate {
+    margin-left: 59px;
+    display: flex;
+    flex: 0 1 25%;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .day__schedule-hours {
