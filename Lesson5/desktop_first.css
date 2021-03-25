@@ -63,7 +63,7 @@ display: flex;
     display: flex;
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
     .first {
        flex-wrap: wrap;
     }
@@ -98,7 +98,7 @@ display: flex;
     }
 }
 
-@media (min-width: 960px) {
+@media (max-width: 960px) {
     .third  {
         flex-wrap: nowrap;
     }
@@ -116,7 +116,7 @@ display: flex;
     }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .third {
         flex-wrap: wrap;
     }
@@ -134,7 +134,7 @@ display: flex;
     }    
 }
 
-@media (min-width: 320px) {
+@media (max-width: 320px) {
     .fourth {
         display: flex;
     }
