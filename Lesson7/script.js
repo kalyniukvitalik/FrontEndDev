@@ -1,46 +1,64 @@
-// 1. Вывести в консоль числа от 1 до n, где n - это произвольное целое число большее 1
 /*
-let n = 15;
-let x = 0;
-while(x<n){
-    x++;
-    console.log(x)
-};
+function basicOp(operation, value1, value2)
+{
+  if(operation == '+') {
+    return value1 + value2;
+  }; 
+  if(operation == '-') {
+    return value1 - value2;
+  };  
+  if(operation == '*') {
+    return value1 * value2;
+  };  
+  if(operation == '/') {
+    return value1 / value2;
+  };  
+}
 */
 
-// 2. Вывести в консоль простые числа от 1 до n.
 /*
-function figure(n) {
-    nextStep:
-    for(i = 1; i <= n; i++){
-        for(t = 2; t < i; t++){
-            if(i % t == 0){
-                continue nextStep;
-            }
-        }
-     console.log(i)}
-    }
-figure(alert(14))
-*/
-/*
-let n = 10;
-nextPrime:
-for(i = 1; i <= n; i++){
-    for(j = 7; j < i; i++){
-        if(i % j == 0){
-            continue nextPrime;
-        }
-    }
-    alert(i);
-};
+function even_or_odd(number) {
+    if (number % 2 !== 0)
+      return "Odd";
+    else
+      return "Even";
+  }
+  */
+
+  /*
+ function makeNegative(num) {
+    return -Math.abs(num);
+  }
+  */
+
+  /*
+  function greet(name){
+  let message;
+ if(name === "Johnny") {
+  message = "Hello, my love!";
+} else {
+  message = "Hello, " + name + "!";
+}
+return message;
+}
 */
 
-//3. Вывести в консоль числа кратные k, в диапазоне от 1 до n.
 /*
-let n = 200;
-let k = 3;
-for(i = 1; i < n;  i++) {
-    if(i % k === 0)
-    alert(i)
-};
+function lovefunc(flower1, flower2){
+  return flower1%2===0 && flower2%2===1 || flower1%2===1 && flower2%2===0;
+}
 */
+
+/*
+function boolToWord( bool ){
+  return bool ? 'Yes':'No';
+}
+*/
+
+/*
+function rentalCarCost(d) {
+  let day = d >= 3 && d < 7 ? 20 : 0, 
+      week = d >= 7 ? 50 : 0; 
+
+  return (d * 40) - day - week;
+}
