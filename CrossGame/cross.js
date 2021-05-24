@@ -30,7 +30,7 @@ const cross = {
         cross.status = GAME_STERTED;
         cross.stepCount = 0;
 
-        cross.renderBoard();
+        cross.render();
     },
     /**
      * @param {number} place   - cell index  in board
@@ -60,7 +60,7 @@ const cross = {
             // if winLine is object -> Tline
             cross.status = GAME_ENDED;
 
-            cross.renderBoard();
+            cross.render();
             console.log(`Winner: `, cross.currentUser);
             return ;
         }
@@ -69,7 +69,7 @@ const cross = {
         cross.currentUser = nextUser;
         cross.stepCount++;
 
-        cross.renderBoard();
+        cross.render();
 
         return ;
     },
@@ -152,7 +152,7 @@ const cross = {
         return line.cells
             .every(el => el === currentUser);
     },
-    renderBoard: function() {
+    render: function() {
         console.log(`currentUser`, cross.currentUser, `step: `, cross.stepCount + 1)
         for (let rowIndex = 0; rowIndex < 3; rowIndex++) {
             console.log( cross.getRow(rowIndex).cells.join(' | ') );
@@ -161,4 +161,4 @@ const cross = {
 };
 
 console.log ( cross );
-cross.start();
+
