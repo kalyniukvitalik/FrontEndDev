@@ -28,7 +28,7 @@
     }
 
     function activateAutoplay() {
-        this.autoplayEl = this.rootEl.querySelector('.slider__timeline');
+       /* this.autoplayEl = this.rootEl.querySelector('.slider__timeline');
 
         if (this.autoplayEl) {
             this.autoplayEl.classList.add('animated')
@@ -36,9 +36,9 @@
                 'animationiteration', 
                  this.next.bind(this)  
             );
-        } 
+        } */
 
-        // setInterval(this.next.bind(this), 3000);
+         setInterval(this.next.bind(this), 3000);
     }
     
     function init() {
