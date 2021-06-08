@@ -15,7 +15,8 @@
         this.state = {
             startedTime: 0, 
             pausedTime: 0,
-            status: TIMER_STOPED
+            status: TIMER_STOPED,
+            currentTime: 0
         };
 
         this.rootEl = document.querySelector(props.selector);
@@ -48,7 +49,9 @@
     
     Timer.prototype.pauseRenderInterval = function pauseRenderInterval() {
         if (this._intervalID) {
+            this.state.currentTime = new Date()-this.state.startedTime;
              clearInterval(this._intervalID);
+             this.actionCol.pause.disabled = true;
         }    
     };
          
@@ -59,7 +62,9 @@
     Timer.prototype.start = function start() {
         console.log('started');
         this.state.status = TIMER_STARTED;
-        this.state.startedTime = Date.now();
+        this.state.startedTime = Date.now()-this.state.currentTime;
+        this.actionCol.pause.disabled = false;
+
 
         this.startRenderInterval();
         this.render();
