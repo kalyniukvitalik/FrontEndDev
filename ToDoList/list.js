@@ -11,5 +11,5 @@ List.prototype.addItems = function (elCollection) {
 };
 
 List.prototype.clear = function () {
-    this.rootEl.innerText = ''
+    this.rootEl.innerText = '';
 }

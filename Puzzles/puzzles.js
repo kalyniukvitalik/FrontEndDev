@@ -28,7 +28,7 @@ Puzzles.prototype.createCells = function () {
 
     this.cells = {};
 
-    for (let i = WIN_BOARD.length - 2; i >= 0; i--){
+    for (let i = WIN_BOARD.length - 2; i >= 0; i--) {
         const cellValue = WIN_BOARD[i];
         const cell = this.createCellItem(cellValue);
 
@@ -75,6 +75,63 @@ Puzzles.prototype.start = function () {
     this.clearBoard();
     this.createCells();
     this.render();
+    document.addEventListener('keydown', this.keydown.bind(this));
+};
+
+Puzzles.prototype.keydown = function (e) {
+    switch (e.key) {
+        case 'ArrowRight':
+            console.log("right");
+            break;
+        case 'ArrowLeft':
+            console.log("left");
+            break;
+        case 'ArrowUp':
+            console.log("up");
+            break;
+        case 'ArrowDown':
+            console.log("down");
+            break;
+    }
+    let canMove = false;
+
+    for (let cellValue = 1; cellValue < 16; cellValue++) {
+
+        const cellIdx = this.board.indexOf(cellValue);
+        const emptyIndex = this.board.indexOf(EMPTY);
+        const idxAvailableForMove = movedCellsIndex(this.board, emptyIndex);
+        switch (e.key) {
+            case 'ArrowRight':
+                canMove = idxAvailableForMove.LEFT === cellIdx;
+                break;
+            case 'ArrowLeft':
+                canMove = idxAvailableForMove.RIGHT === cellIdx;
+                break;
+            case 'ArrowUp':
+                canMove = idxAvailableForMove.BOTTOM === cellIdx;
+                break;
+            case 'ArrowDown':
+                canMove = idxAvailableForMove.TOP === cellIdx;
+                break;
+        }
+
+        if (!canMove) continue;
+
+        this.board[cellIdx] = EMPTY;
+        this.board[emptyIndex] = cellValue;
+
+        this.render();
+
+        if (this.isWin()) {
+            this.status = WIN_STATUS;
+        }
+        break;
+    }
+
+        if (!canMove) {
+            throw new Error(`can't move to press ${e.key}`);
+        }
+    
 };
 
 Puzzles.prototype.step = function (cellValue) {
@@ -107,18 +164,18 @@ Puzzles.prototype.step = function (cellValue) {
 };
 
 Puzzles.prototype.isWin = function () {
-   for (let i = 0; i < this.board.length; i++ ) {
-       const winValue = WIN_BOARD[i];
-       const currentValue = this.board[i];
+    for (let i = 0; i < this.board.length; i++) {
+        const winValue = WIN_BOARD[i];
+        const currentValue = this.board[i];
 
-       if (winValue !== currentValue) {
-           return false;
-       }
-   }
+        if (winValue !== currentValue) {
+            return false;
+        }
+    }
 
-   return true;
+    return true;
 
-   // return this.board.join('') === WIN_BOARD.join('');
+    // return this.board.join('') === WIN_BOARD.join('');
 };
 
 function movedCellsIndex(board, emptyIndex) {

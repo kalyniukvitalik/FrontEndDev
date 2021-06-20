@@ -1,17 +1,49 @@
 /* eslint-disable no-undef */
 
-const addTaskForm = new AddTaskForm(addTaskHandler);
+new AddTaskForm(addTaskHandler);
+
+const taskStorage = new TaskStorage('localServer');
 const listComponent = new List();
+const counter = new Counter('.todo-count');
+
+taskStorage.addEventListener('read', onReadData);
 
 listComponent.clear();
+counter.setCount(0);
+taskStorage.read();
 
-console.log(addTaskForm, listComponent);
+function onReadData() {
+   const renderedItems =  taskStorage.items.map(task => {
+      task.addEventListener('destroy', removeTaskHandler);
+      task.addEventListener('stateChanger', onStateChanged);
+
+      return task.render();   
+   });
+
+   listComponent.addItems(renderedItems);
+   counter.setCount( taskStorage.getLength() );
+}
 
 function addTaskHandler(taskObj) {
-   const task = new Task( {...taskObj, id: Date.now() });
+   const taskData = {
+      ...taskObj,
+      id: Date.now() 
+   };
+   const task = new Task(taskData);
 
-   console.log( task );
-   console.log( task.render() );
+   taskStorage.addItem(task);
+   task.addEventListener('destroy', removeTaskHandler);
+   task.addEventListener('stateChanger', onStateChanged);
 
    listComponent.addItem( task.render() );
+   counter.setCount( taskStorage.getLength() );
+}
+
+function removeTaskHandler({ target: task }) {
+   taskStorage.removeItem(task);
+   counter.setCount( taskStorage.getLength() );
+}
+
+function onStateChanged() {
+   taskStorage.write();
 }
