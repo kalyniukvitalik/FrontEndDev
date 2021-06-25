@@ -1,4 +1,4 @@
-function List() {
+export function List() {
     this.rootEl = document.querySelector('.todo-list');
  }
 

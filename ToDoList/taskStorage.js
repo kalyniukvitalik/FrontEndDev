@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import EventEmiter from './eventEmiter.js';
+import Task from './task.js';
 
-class TaskStorage extends EventEmiter {
+export default class TaskStorage extends EventEmiter {
     constructor(storageKey) {
         super();
 
@@ -10,7 +10,7 @@ class TaskStorage extends EventEmiter {
     }
 
     getLength() {
-        return this.items.length;
+        return this.items.filter(task => !task.hidden).length;
     }
 
     clear() {

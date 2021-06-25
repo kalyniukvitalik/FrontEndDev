@@ -1,4 +1,7 @@
-function AddTaskForm(addTaskHandler) {
+// module.exports = {
+//    AddTaskForm: AddTaskForm
+// }
+export function AddTaskForm(addTaskHandler, onCompleteHandler) {
     // this.__proto__ = AddTaskForm.prototype
     this.rootEl = document.querySelector('.header');
     this.taskEl = document.querySelector('.new-todo');
@@ -7,6 +10,12 @@ function AddTaskForm(addTaskHandler) {
     this.addTaskHandler = addTaskHandler;
 
     this.rootEl.addEventListener('submit', this.onSubmit.bind(this));
+
+    if (onCompleteHandler) {
+        this.checkEl.addEventListener('click', () => {
+        onCompleteHandler(this.checkEl.checked);
+        });
+    }
 }
 
 AddTaskForm.prototype.onSubmit = function (e) {

@@ -1,8 +1,8 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import EventEmiter from './eventEmiter.js';
+
 const DB_CLICK_TIME = 500;
 
-class Task extends EventEmiter {
+export default class Task extends EventEmiter {
     constructor(taskObj, removeTaskHandler) {
         super();
 
@@ -20,6 +20,10 @@ class Task extends EventEmiter {
         this.removeTaskHandler = removeTaskHandler;
 
         this.createElements();
+    }
+
+    get completed() {
+        return this.state.completed;
     }
 
     createElements() {
@@ -149,10 +153,12 @@ class Task extends EventEmiter {
     
     render() {
         const { completed, text } = this.state;
-        const { editing } = this;
+        const { editing, hidden } = this;
     
+        this.rootEl.hidden = hidden;
         this.textEl.innerText = text;
         this.taskEditEl.value = text;
+        this.completedEl.checked = completed;
     
         if (completed) {
             this.rootEl.classList.add('completed');
@@ -169,4 +175,3 @@ class Task extends EventEmiter {
         return this.rootEl;
     }
 }
-

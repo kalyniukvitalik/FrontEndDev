@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-class Counter {
+export default class Counter {
     constructor(selector) {
         this.rootEl = document.querySelector(selector);
         this.digiEl = this.rootEl.querySelector('strong');
