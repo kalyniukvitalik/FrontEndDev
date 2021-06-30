@@ -128,7 +128,7 @@ body {
 	top: 15%;
 	right: 10px;
 
-	animation: loader-rotate 100s infinite;
+	animation: loader-rotate 1s infinite;
 }
 
 @keyframes loader-rotate {
@@ -192,7 +192,7 @@ body {
 
 .todo-list {
 	margin: 0;
-	padding: 0;
+	padding: 0;	
 	list-style: none;
 }
 

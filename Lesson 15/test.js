@@ -1,6 +1,6 @@
 const promise = new Promise(function PromiseMaker(resolve, reject) {
     if (Math.random() > .5) {
-    setTimeout(resolve, 2000);
+    setTimeout(() => resolve({}), 2000);
     } else {
         setTimeout(reject, 7000);
     }
@@ -8,7 +8,7 @@ const promise = new Promise(function PromiseMaker(resolve, reject) {
 
 const newPromise = promise
     .then(
-        function onSucces() {
+        function onSucces(value) {
             console.log('promise result succesfull');
             console.log(promise, newPromise);
         }

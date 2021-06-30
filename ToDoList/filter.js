@@ -8,7 +8,7 @@ export default class Filter extends EventEmiter {
 
         this.rootEl = document.querySelector('.filters');
         this.links = Array.from(this.rootEl.querySelectorAll('a'));
-        this.avaibleFilters = this.links.map(link => link.hash);
+        this.availableFilters = this.links.map(link => link.hash);
 
         const selectedLink = this.links.find(
             link => link.classList.contains(SELECTED_LINK_CLASS)
@@ -16,24 +16,24 @@ export default class Filter extends EventEmiter {
         const selectedHash = selectedLink && selectedLink.hash;
         const activeHash = this.getActiveLinkHash();
 
-        this.currentFilter = activeHash || selectedHash || this.avaibleFilters[0];
+        this.currentFilter = activeHash || selectedHash || this.availableFilters[0];
 
-        if (!this.avaibleFilters.includes(this.currentFilter)) {
-            this.currentFilter = this.avaibleFilters[0];
+        if (!this.availableFilters.includes(this.currentFilter)) {
+            this.currentFilter = this.availableFilters[0];
         }
 
-        // this.rootEl.addEventListener('click',  this.setCurrentLink.bind(this));
+        // this.rootEl.addEventListener('click', this.setCurrentLink.bind(this));
         window.addEventListener('hashchange', this.onHashChange.bind(this));
 
         this.render();
     }
 
     get value() {
-        return this.currentFilter; 
+        return this.currentFilter;
     }
 
     setValue(newValue) {
-        if (!this.avaibleFilters.includes(newValue)) {
+        if (!this.availableFilters.includes(newValue)) {
             return ;
         }
 
@@ -50,7 +50,7 @@ export default class Filter extends EventEmiter {
             activeLink = this.links.find(link => link.hash === hash);
         }
 
-        if (activeLink && this.avaibleFilters.includes(activeLink.hash)) {
+        if (activeLink && this.availableFilters.includes(activeLink.hash)) {
             return activeLink.hash;
         }
 
@@ -60,8 +60,9 @@ export default class Filter extends EventEmiter {
     onHashChange() {
         const newHash = this.getActiveLinkHash();
 
-        if (newHash)
+        if (newHash) {
             this.setValue(newHash);
+        }
     }
 
     setCurrentLink(e) {
@@ -72,7 +73,7 @@ export default class Filter extends EventEmiter {
 
     render() {
         this.links.forEach(link => {
-            if(link.hash === this.currentFilter) {
+            if (link.hash === this.currentFilter) {
                 link.classList.add(SELECTED_LINK_CLASS);
             } else {
                 link.classList.remove(SELECTED_LINK_CLASS);
